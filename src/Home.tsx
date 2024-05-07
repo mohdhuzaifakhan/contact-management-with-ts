@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './components/SearchBar';
 import { collection, doc, getDocs, deleteDoc } from 'firebase/firestore';
@@ -12,7 +12,7 @@ interface User {
 }
 
 function Home() {
-    const [open, setOpen] = useState<boolean>(false);
+    // const [open, setOpen] = useState<boolean>(false);
     const [searchKey, setSearchKey] = useState<string>('');
     const [searchResults, setSearchResults] = useState<User[]>([]);
     const [users, setUsers] = useState<User[]>([]);
@@ -50,7 +50,7 @@ function Home() {
                     </div>
                     <div className='flex w-full items-center justify-end lg:w-auto'>
                         <div className='w-full lg:w-auto'>
-                            <SearchBar searchKey={searchKey} setSearchKey={setSearchKey} users={users} searchResults={searchResults} setSearchResults={setSearchResults} />
+                            <SearchBar searchKey={searchKey} setSearchKey={setSearchKey} users={users} setSearchResults={setSearchResults} />
                         </div>
                         <div className='ml-2'>
                             <Link to='/create-contact'>

@@ -1,19 +1,20 @@
 import React from 'react';
 
 interface User {
+    id: string;
     firstName: string;
     lastName: string;
+    status: string;
 }
 
 interface SearchBarProps {
     searchKey: string;
     setSearchKey: React.Dispatch<React.SetStateAction<string>>;
     users: User[];
-    searchResults: User[];
     setSearchResults: React.Dispatch<React.SetStateAction<User[]>>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ searchKey, setSearchKey, users, searchResults, setSearchResults }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ searchKey, setSearchKey, users, setSearchResults }) => {
     function search() {
         if (searchKey.trim() === "") {
             setSearchResults(users);

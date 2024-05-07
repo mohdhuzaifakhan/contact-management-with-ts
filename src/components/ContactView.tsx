@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { useParams } from 'react-router-dom';
 import { db } from "../firebase/dbConfig";
@@ -10,13 +10,13 @@ interface User {
 }
 
 const ContactView: React.FC = () => {
-    const { id } = useParams<{ id: string }>("");
+    const { id } = useParams<{ id: string }>();
     const [firstName, setFirstName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
     const [status, setStatus] = useState<string>('active');
 
     useEffect(() => {
-        getUserData(id);
+        getUserData(id!);
     }, [id]);
 
     async function updateUserData(e: React.FormEvent<HTMLFormElement>, userId: string) {
@@ -43,7 +43,7 @@ const ContactView: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen">
-            <form onSubmit={(e) => updateUserData(e, id)} className="w-full max-w-md bg-white rounded-lg shadow-sm p-8">
+            <form onSubmit={(e) => updateUserData(e, id!)} className="w-full max-w-md bg-white rounded-lg shadow-sm p-8">
                 <h2 className="text-2xl font-bold mb-4 text-center">Edit Contact</h2>
                 <div className="mb-4">
                     <label htmlFor="firstname" className="block text-gray-700 font-bold mb-2">

@@ -11,7 +11,7 @@ import ContactView from './components/ContactView';
 interface AppProps {}
 
 const App: FC<AppProps> = () => {
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
   return (
     <>

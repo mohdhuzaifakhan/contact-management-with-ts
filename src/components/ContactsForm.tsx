@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase/dbConfig";
 
-interface Contact {
-    firstName: string;
-    lastName: string;
-    status: string;
-}
+// interface Contact {
+//     firstName: string;
+//     lastName: string;
+//     status: string;
+// }
 
 const ContactsForm: React.FC = () => {
     const [firstName, setFirstName] = useState<string>('');
